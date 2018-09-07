@@ -12,7 +12,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-    	//Admin
+    	//Administrador
         User::create([
         	'name' =>'Administrador',
         	'email' =>'admin@ucss.pe',
