@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <!-- Latest compiled and minified CSS -->
-     <link rel="stylesheet" href="//bootswatch.com/3/flatly/bootstrap.css">
+     <link rel="stylesheet" href="//bootswatch.com/3/yeti/bootstrap.css">
     
     <!-- Scripts -->
     <script>

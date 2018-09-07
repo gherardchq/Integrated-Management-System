@@ -14,25 +14,25 @@ class UsersTableSeeder extends Seeder
     {
     	//Admin
         User::create([
-        	'name' =>'Gherard',
-        	'email' =>'2014100007@ucss.pe',
-        	'password' => bcrypt('72930812'),
+        	'name' =>'Administrador',
+        	'email' =>'admin@ucss.pe',
+        	'password' => bcrypt('09051993'),
         	'role' => 0
         ]);
 
         //Support
         User::create([
-        	'name' =>'Joel',
-        	'email' =>'jlopez@ucss.edu.pe',
-        	'password' => bcrypt('12345678'),
+        	'name' =>'Soporte',
+        	'email' =>'support@ucss.pe',
+        	'password' => bcrypt('123456789'),
         	'role' => 1
         ]);
 
         //Client
         User::create([
-        	'name' =>'Raul',
-        	'email' =>'rbizarro@ucss.edu.pe',
-        	'password' => bcrypt('12345678'),
+        	'name' =>'Cliente',
+        	'email' =>'client@ucss.pe',
+        	'password' => bcrypt('123456789'),
         	'role' => 2
         ]);
     }
