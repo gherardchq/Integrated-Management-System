@@ -49,10 +49,11 @@
                    <div class="row">
                     <div class="col-md-6">
                     <p>Categorías</p>
-
                     <form action="/categorias" method="POST" class="form-inline">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="project_id" value="{{ $project->id }}">
                         <div class="form-group">
-                        <input style="margin-bottom: 8px" type="text" placeholder="Ingrese nombre" class="form-control">
+                        <input style="margin-bottom: 8px" type="text" name="name" placeholder="Ingrese nombre" class="form-control">
                         </div>
                         <button style="margin-bottom: 8px" class="btn btn-primary">Añadir</button>
                     </form>
@@ -65,14 +66,16 @@
                              </tr>
                          </thead>
                          <tbody>
+                            @foreach ($categories as $category)
                              <tr>
-                                 <td>Categoría XYZ</td>
+                                 <td>{{ $category->name }}</td>
                                  <td>
                                      <a href="" class="btn btn-sm btn-primary" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
 
                                      <a href="" class="btn btn-sm btn-danger" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a>
                                  </td>
                              </tr>
+                            @endforeach
                          </tbody>
                      </table>
                     </div>
@@ -81,8 +84,10 @@
                     <p>Niveles</p>
 
                     <form action="/niveles" method="POST" class="form-inline">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="project_id" value="{{ $project->id }}">
                         <div class="form-group">
-                        <input style="margin-bottom: 8px" type="text" placeholder="Ingrese nombre" class="form-control">
+                        <input style="margin-bottom: 8px" type="text" name="name" placeholder="Ingrese nombre" class="form-control">
                         </div>
                         <button style="margin-bottom: 8px" class="btn btn-primary">Añadir</button>
                     </form>
@@ -96,15 +101,17 @@
                              </tr>
                          </thead>
                          <tbody>
+                            @foreach ($levels as $key => $level)
                              <tr>
-                                 <td>N1</td>
-                                 <td>Atención Básica</td>
+                                 <td>N{{ $key+1 }}</td>
+                                 <td>{{ $level->name }}</td>
                                  <td>
                                      <a href="" class="btn btn-sm btn-primary" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
 
                                      <a href="" class="btn btn-sm btn-danger" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a>
                                  </td>
                              </tr>
+                            @endforeach
                          </tbody>
                      </table>
                     </div>                     
