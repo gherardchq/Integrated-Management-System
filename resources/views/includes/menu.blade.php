@@ -25,7 +25,7 @@
 				    </a>
 				    <ul class="dropdown-menu">
 				      <li><a href="/usuarios">Usuarios</a></li>
-				      <li><a href="/proyectos">Proyectos</a></li>
+				      <li><a href="/proyectos">Ciclos</a></li>
 				      <li><a href="/config">Configuración</a></li>
 				    </ul>
 				  </li>
