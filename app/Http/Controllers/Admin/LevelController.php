@@ -20,4 +20,27 @@ class LevelController extends Controller
 
     	return back();
     }
+
+    public function update(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required'
+        ],[
+            'name.required' => 'Es necesario ingresar un nombre para el nivel'
+        ]);
+
+        $level_id = $request->input('level_id');
+        
+        $level = level::find($level_id);
+        $level->name = $request->input('name');
+        $level->save();
+
+        return back();
+    }
+
+    public function delete($id)
+    {
+        Level::find($id)->delete();
+        return back();
+    }
 }

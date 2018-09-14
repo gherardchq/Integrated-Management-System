@@ -65,9 +65,9 @@
                              <tr>
                                  <td>{{ $category->name }}</td>
                                  <td>
-                                     <button type="button" class="btn btn-sm btn-primary" title="Editar" data-category="{{ $category }}"><span class="glyphicon glyphicon-pencil"></span></button>
+                                     <button type="button" class="btn btn-sm btn-primary" title="Editar" data-category="{{ $category->id }}"><span class="glyphicon glyphicon-pencil"></span></button>
 
-                                     <a href="" class="btn btn-sm btn-danger" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a>
+                                     <a href="/categoria/{{ $category->id }}/eliminar" class="btn btn-sm btn-danger" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a>
                                  </td>
                              </tr>
                             @endforeach
@@ -99,9 +99,9 @@
                                  <td>N{{ $key+1 }}</td>
                                  <td>{{ $level->name }}</td>
                                  <td>
-                                     <a href="" class="btn btn-sm btn-primary" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+                                     <button type="button" class="btn btn-sm btn-primary" title="Editar" data-level="{{ $level->id }}"><span class="glyphicon glyphicon-pencil"></span></button>
 
-                                     <a href="" class="btn btn-sm btn-danger" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a>
+                                     <a href="/nivel/{{ $level->id }}/eliminar" class="btn btn-sm btn-danger" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a>
                                  </td>
                              </tr>
                             @endforeach
@@ -109,7 +109,6 @@
                     </table>
                     </div>
                     </div>
-
                
                 </div>
             </div>
@@ -123,6 +122,7 @@
                   </div>
 
                   <form action="/categoria/editar" method="POST">
+                    {{ csrf_field() }}
                   <div class="modal-body">                    
                         <input type="hidden" name="category_id" id="category_id" value="">
                         <div class="form-group">
@@ -150,6 +150,7 @@
                   </div>
 
                   <form action="/nivel/editar" method="POST">
+                    {{ csrf_field() }}
                   <div class="modal-body">                    
                         <input type="hidden" name="level_id" id="level_id" value="">
                         <div class="form-group">
