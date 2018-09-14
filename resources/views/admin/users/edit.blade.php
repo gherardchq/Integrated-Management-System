@@ -46,9 +46,12 @@
                     </div>
                    </form>
 
+                   <form action="/proyecto-usuario" method="POST">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="user_id" value="{{ $user->id }}">
                    <div class="row">
                     <div class="col-md-4">
-                      <select name="" class="form-control" id="select-project">
+                      <select name="project_id" class="form-control" id="select-project">
                         <option value="">Seleccione Ciclo</option>
                         @foreach ($projects as $project)
                           <option value="{{ $project->id }}">{{ $project->name }}</option>
@@ -57,7 +60,7 @@
                     </div>
 
                     <div class="col-md-4">
-                      <select name="" class="form-control" id="select-level">
+                      <select name="level_id" class="form-control" id="select-level">
                         <option value="">Seleccione Nivel</option>                        
                       </select>
                     </div>
@@ -66,8 +69,9 @@
                       <button class="btn btn-primary btn-block">Asignar Ciclo</button>
                     </div>
                    </div>
+                   </form>
 
-                   <p>Ciclo Asignados</p> 
+                   <p>Ciclos Asignados</p> 
 
                    <table class="table table-bordered">
                        <thead>
@@ -78,15 +82,17 @@
                            </tr>
                        </thead>
                        <tbody>
+                        @foreach ($projects_user as $project_user)
                            <tr>
-                               <td>Ciclo 2018 - II</td>
-                               <td>Nivel 1</td>
+                               <td>{{ $project_user->project->name }}</td>
+                               <td>{{ $project_user->level->name }}</td>
                                <td>
                                    <a href="" class="btn btn-sm btn-primary" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
 
                                    <a href="" class="btn btn-sm btn-danger" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a>
                                </td>
                            </tr>
+                           @endforeach
                        </tbody>
                    </table>
                 </div>
