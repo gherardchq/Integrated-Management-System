@@ -46,21 +46,22 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <ul class="nav navbar-nav">
-                            <form class="navbar-form navbar-left">
+                        @if (auth()->check())                       
+                            <form class="navbar-form">
                                 <div class="form-group">
                                     <select name="" class="form-control">
                                         <option value="">Ciclo 2018 - I</option>
                                     </select>
                                 </div>
                             </form>
+                            @endif
                         </ul>
-                    </ul>
+                    
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                        @guest
+                        @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Registro</a></li>
                         @else
