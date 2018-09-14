@@ -30,11 +30,11 @@ Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function () {
 
 // Category
 	Route::post('/categorias', 'CategoryController@store');
-	Route::post('/categoria/{id}', 'CategoryController@update');
+	Route::post('/categoria/editar', 'CategoryController@update');
 
 // Level
 	Route::post('/niveles', 'LevelController@store');
-	Route::post('/nivel/{id}', 'LevelController@update');
+	Route::post('/nivel/editar', 'LevelController@update');
 
 	Route::get('/config', 'ConfigController@index');
 });

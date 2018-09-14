@@ -23,30 +23,26 @@
                         </div>
                     @endif
 
-                 <form action="" method="POST">
-                     {{ csrf_field() }}
-
+                    <form action="" method="POST">
+                    {{ csrf_field() }}
                     <div class="form-group">
                         <label for="name">Nombre</label>
                         <input type="text" name="name" class="form-control" value="{{ old('name', $project->name) }}">
                     </div>
-
                     <div class="form-group">
                         <label for="description">Descripción</label>
                         <input type="description" name="description" class="form-control" value="{{ old('description', $project->description) }}">
                     </div>
-
                     <div class="form-group">
                         <label for="start">Fecha de Inicio</label>
                         <input type="date" name="start" class="form-control" value="{{ old('start', $project->start)}}">
                     </div>
-
                     <div class="form-group">
-                        <button class="btn btn-primary">Guardar Ciclo</button>
+                    <button class="btn btn-primary">Guardar Ciclo</button>
                     </div>
-                   </form>
+                    </form>
 
-                   <div class="row">
+                    <div class="row">
                     <div class="col-md-6">
                     <p>Categorías</p>
                     <form action="/categorias" method="POST" class="form-inline">
@@ -57,8 +53,7 @@
                         </div>
                         <button style="margin-bottom: 8px" class="btn btn-primary">Añadir</button>
                     </form>
-
-                     <table class="table table-bordered">
+                    <table class="table table-bordered">
                          <thead>
                              <tr>
                                  <th>Nombre</th>
@@ -70,19 +65,18 @@
                              <tr>
                                  <td>{{ $category->name }}</td>
                                  <td>
-                                     <a href="" class="btn btn-sm btn-primary" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+                                     <button type="button" class="btn btn-sm btn-primary" title="Editar" data-category="{{ $category }}"><span class="glyphicon glyphicon-pencil"></span></button>
 
                                      <a href="" class="btn btn-sm btn-danger" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a>
                                  </td>
                              </tr>
                             @endforeach
                          </tbody>
-                     </table>
+                    </table>
                     </div>
 
                     <div class="col-md-6">
                     <p>Niveles</p>
-
                     <form action="/niveles" method="POST" class="form-inline">
                         {{ csrf_field() }}
                         <input type="hidden" name="project_id" value="{{ $project->id }}">
@@ -91,8 +85,7 @@
                         </div>
                         <button style="margin-bottom: 8px" class="btn btn-primary">Añadir</button>
                     </form>
-
-                     <table class="table table-bordered">
+                    <table class="table table-bordered">
                          <thead>
                              <tr>
                                  <th>#</th>
@@ -113,12 +106,69 @@
                              </tr>
                             @endforeach
                          </tbody>
-                     </table>
-                    </div>                     
-
-                   </div>
+                    </table>
+                    </div>
+                    </div>
 
                
                 </div>
             </div>
+
+            <div class="modal fade" tabindex="-1" role="dialog" id="modalEditCategory">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Editar Categoría</h4>
+                  </div>
+
+                  <form action="/categoria/editar" method="POST">
+                  <div class="modal-body">                    
+                        <input type="hidden" name="category_id" id="category_id" value="">
+                        <div class="form-group">
+                            <label for="name">Nombre de la Categoría</label>
+                            <input type="text" class="form-control" name="name" id="category_name" value="">                      
+                        </div>           
+                  </div>
+
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                  </div>
+                  </form>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+
+            <div class="modal fade" tabindex="-1" role="dialog" id="modalEditLevel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Editar Nivel</h4>
+                  </div>
+
+                  <form action="/nivel/editar" method="POST">
+                  <div class="modal-body">                    
+                        <input type="hidden" name="level_id" id="level_id" value="">
+                        <div class="form-group">
+                            <label for="name">Nombre del Nivel</label>
+                            <input type="text" class="form-control" name="name" id="level_name" value="">                      
+                        </div>           
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                  </div>
+                  </form>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->            
+
+@endsection
+
+@section('scripts')
+    <script src="/js/admin/projects/edit.js"></script>
 @endsection
