@@ -1,0 +1,20 @@
+/*
+1. Clonar el proyecto: Ejecutar el comando "git clone *enlaceProyecto*".
+2. Ingresar por consola a la carpeta SGI
+3. Instalar Composer: Ejecutar el comando "composer install"
+4. Crear la Base de Datos "incidencias"poh
+5. En la carpeta SGI, copiar y pegar el archivo ".env.example" y renombrarlo a ".env."
+6. Modificar las siguientes líneas de ".env.":
+		- DB_DATABASE= incidencias
+		- DB_USERNAME= *nombreusuarioservidor*
+		- DB_PASSWORD= *claveservidor*
+7. Migrar contenido a la BD: Ejecutar el comando "php artisan migrate:refresh --seed"
+8. Generar Key para el sistema: Ejecutar el comando "php artisan key:generate"
+9. Configuración del Caché: Ejecutar el comando "php artisan config:cache"
+10. Abrir otra consola e ingresar a la carpeta SGI
+11. Activar el servidor local: Ejecutar el comando "php artisan serve"
+12. Copiar el enlace generado en tu navegador.
+13. Realiza tus pruebas en el sistema (Admin, Support, Client).
+
+Hecho por: Ing. Gherard Chipana Quiñones
+*/
