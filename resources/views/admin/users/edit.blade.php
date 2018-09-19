@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Contraseña <em>Ingresar solo si desea modificar</em></label>
+                        <label for="password">Contraseña <em>Ingresar solo si se desea modificar</em></label>
                         <input type="text" name="password" class="form-control" value="{{ old('password') }}">
                     </div>
 
