@@ -61,7 +61,7 @@
 
                     <div class="col-md-4">
                       <select name="level_id" class="form-control" id="select-level">
-                        <option value="">Seleccione Nivel</option>                        
+                        <option value="">Seleccione Nivel</option>                      
                       </select>
                     </div>
 
@@ -87,9 +87,7 @@
                                <td>{{ $project_user->project->name }}</td>
                                <td>{{ $project_user->level->name }}</td>
                                <td>
-                                   <a href="" class="btn btn-sm btn-primary" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-
-                                   <a href="" class="btn btn-sm btn-danger" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a>
+                                   <a href="/proyecto-usuario/{{ $project_user->id }}/eliminar" class="btn btn-sm btn-danger" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a>
                                </td>
                            </tr>
                            @endforeach

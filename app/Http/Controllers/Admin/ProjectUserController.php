@@ -28,4 +28,10 @@ class ProjectUserController extends Controller
 
     	return back();
     }
+
+    public function delete($id)
+    {
+        ProjectUser::find($id)->delete();
+        return back();
+    }
 }
