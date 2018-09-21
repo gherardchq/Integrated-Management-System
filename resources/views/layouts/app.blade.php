@@ -50,7 +50,9 @@
                             <form class="navbar-form">
                                 <div class="form-group">
                                     <select name="" class="form-control">
-                                        <option value="">Ciclo 2018 - I</option>
+                                        @foreach(auth()->user()->list_of_projects as $project)
+                                        <option value="{{ $project->id }}">{{ $project->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </form>
