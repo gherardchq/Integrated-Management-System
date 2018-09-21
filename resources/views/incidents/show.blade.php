@@ -76,7 +76,7 @@
                     </tbody>
                 </table>
 
-                @if ($incident->support_id == null && $incident->active)
+                @if ($incident->support_id == null && $incident->active && auth()->user()->canTake($incident))
                 <a href="/incidencia/{{ $incident->id }}/atender" class="btn btn-primary btn-sm" id="incident_btn_apply">
                     Atender Incidencia
                 </a>
@@ -87,16 +87,16 @@
                     <a href="/incidencia/{{ $incident->id }}/resolver" class="btn btn-info btn-sm" id="incident_btn_solve">
                         Marcar como resuelto
                     </a>
+
+                    <a href="/incidencia/{{ $incident->id }}/editar" class="btn btn-success btn-sm" id="incident_btn_edit">
+                        Editar Incidencia
+                    </a>                
                  @else
                 <a href="/incidencia/{{ $incident->id }}/abrir" class="btn btn-info btn-sm" id="incident_btn_open">
                     Volver a abrir incidencia
                 </a>
                  @endif
                 @endif
-
-                <a href="/incidencia/{{ $incident->id }}/editar" class="btn btn-success btn-sm" id="incident_btn_edit">
-                    Editar Incidencia
-                </a>
 
                 @if (auth()->user()->id == $incident->support_id && $incident->active)
                 <a href="/incidencia/{{ $incident->id }}/derivar" class="btn btn-danger btn-sm" id="incident_btn_derive">
