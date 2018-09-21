@@ -10,8 +10,8 @@ Route::get('/home', 'HomeController@index');
 Route::get('/seleccionar/proyecto/{id}', 'HomeController@selectProject');
 
 
-Route::get('/reportar', 'HomeController@getReport');
-Route::post('/reportar', 'HomeController@postReport');
+Route::get('/reportar', 'IncidentController@create');
+Route::post('/reportar', 'IncidentController@store');
 
 
 Route::group(['middleware' => 'admin', 'namespace' => 'Admin'], function () {	
