@@ -49,9 +49,9 @@
                         @if (auth()->check())                       
                             <form class="navbar-form">
                                 <div class="form-group">
-                                    <select name="" class="form-control">
-                                        @foreach(auth()->user()->list_of_projects as $project)
-                                        <option value="{{ $project->id }}">{{ $project->name }}</option>
+                                    <select id="list-of-projects" class="form-control">
+                                        @foreach (auth()->user()->list_of_projects as $project)
+                                        <option value="{{ $project->id }}" @if($project->id==auth()->user()->selected_project_id) selected @endif>{{ $project->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -108,12 +108,13 @@
     <script
       src="http://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous">
-          
+      crossorigin="anonymous">          
     </script>
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    <script src="/js/app.js"></script>
     @yield('scripts')
 </body>
 </html>
