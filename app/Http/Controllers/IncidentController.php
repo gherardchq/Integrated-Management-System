@@ -64,4 +64,29 @@ class IncidentController extends Controller
 
         return back();
     }
+
+    public function take()
+    {
+
+    }
+
+    public function solver()
+    {
+        
+    }
+
+    public function open()
+    {
+        
+    }
+
+    public function edit()
+    {
+        
+    }
+
+    public function nextLevel()
+    {
+        
+    }
 }

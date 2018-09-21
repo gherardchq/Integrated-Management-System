@@ -41,13 +41,16 @@ class LoginController extends Controller
     {
         $user = auth()->user();
 
-        if($user->is_admin || $user->is_client)
-            return;
-
-        //Support
         if(! $user->selected_project_id){
-            $user->selected_project_id = $user->projects->first()->id;
-            $user->save();
-        }
+            if($user->is_admin || $user->is_client){
+                $user->selected_project_id = Project::first()->id;
+            } else {
+                
+            //Support
+                $user->selected_project_id = $user->projects->first()->id;
+                }
+
+                $user->save();
+            }
     }
 }
