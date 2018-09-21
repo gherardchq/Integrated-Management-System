@@ -16,16 +16,8 @@ class UsersTableSeeder extends Seeder
         User::create([
         	'name' =>'Administrador',
         	'email' =>'admin@ucss.pe',
-        	'password' => bcrypt('09051993'),
-        	'role' => 0
-        ]);
-
-        //Support
-        User::create([
-        	'name' =>'Soporte',
-        	'email' =>'support@ucss.pe',
         	'password' => bcrypt('123456789'),
-        	'role' => 1
+        	'role' => 0
         ]);
 
         //Client

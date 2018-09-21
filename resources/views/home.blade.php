@@ -25,10 +25,14 @@
         			<tbody id="dashborad_my_incidents">
                         @foreach ($my_incidents as $incident)         
                         <tr>
-                            <td>{{ $incident->id }}</td>
+                            <td>
+                                <a href="/ver/{{ $incident->id }}"> 
+                                    {{ $incident->id }}
+                                </a>
+                            </td>
                             <td>{{ $incident->category->name }}</td>
                             <td>{{ $incident->severity_full }}</td>
-                            <td>{{ $incident->id }}</td>
+                            <td>{{ $incident->state }}</td>
                             <td>{{ $incident->created_at }}</td>
                             <td>{{ $incident->title_short }}</td>
                         </tr>
@@ -58,10 +62,14 @@
         			<tbody id="dashborad_pending_incidents">
                         @foreach ($pending_incidents as $incident)         
                         <tr>
-                            <td>{{ $incident->id }}</td>
+                            <td>
+                                <a href="/ver/{{ $incident->id }}"> 
+                                    {{ $incident->id }}
+                                </a>
+                            </td>
                             <td>{{ $incident->category->name }}</td>
                             <td>{{ $incident->severity_full }}</td>
-                            <td>{{ $incident->id }}</td>
+                            <td>{{ $incident->state }}</td>
                             <td>{{ $incident->created_at }}</td>
                             <td>{{ $incident->title_short }}</td>
                             <td>
@@ -97,10 +105,14 @@
         			<tbody id="dashborad_to_others">
                         @foreach ($incidents_by_me as $incident)         
                         <tr>
-                            <td>{{ $incident->id }}</td>
+                            <td>
+                                <a href="/ver/{{ $incident->id }}"> 
+                                    {{ $incident->id }}
+                                </a>
+                            </td>
                             <td>{{ $incident->category_name }}</td>
                             <td>{{ $incident->severity_full }}</td>
-                            <td>{{ $incident->id }}</td>
+                            <td>{{ $incident->state }}</td>
                             <td>{{ $incident->created_at }}</td>
                             <td>{{ $incident->title_short }}</td>
                             <td>
@@ -112,9 +124,6 @@
         		</table>
         	</div>
         </div>
-
-
-
      </div>
 </div>
 @endsection
