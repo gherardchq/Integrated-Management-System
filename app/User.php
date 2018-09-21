@@ -43,6 +43,14 @@ class User extends Authenticatable
 
     //Accessors
 
+    public function getAvatarPathAttribute()
+    {
+        if($this->is_client)
+            return '/images/client.png';
+        
+        return '/images/support.png';
+    }
+
     public function getListOfProjectsAttribute()
     {
         if ($this->role == 1)

@@ -50,6 +50,11 @@ class Incident extends Model
         return $this->belongsTo('App\User', 'client_id');
     }
 
+    public function messages()
+    {
+        return $this->hasMany('App\Message');
+    }
+
     //Accessors
 
     public function getSeverityFullAttribute()
