@@ -29,11 +29,14 @@ class HomeController extends Controller
         $user = auth()->user();
         $selected_project_id = $user->selected_project_id;
 
-        $my_incidents = Incident::where('project_id', $selected_project_id)->where('support_id', $user->id)->get();
+        if($user->is_support){
+            $my_incidents = Incident::where('project_id', $selected_project_id)->where('support_id', $user->id)->get();
 
-        $projectUser = projectUser::where('project_id', $selected_project_id)->where('user_id', $user->id)->first();
+            $projectUser = projectUser::where('project_id', $selected_project_id)->where('user_id', $user->id)->first();
 
-        $pending_incidents = Incident::where('support_id', null)->where('level_id', $projectUser->level_id)->get(); 
+            $pending_incidents = Incident::where('support_id', null)->where('level_id', $projectUser->level_id)->get(); 
+        }
+
 
         $incidents_by_me = Incident::where('client_id', $user->id)->where('project_id', $selected_project_id)->get(); 
 

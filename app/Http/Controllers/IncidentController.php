@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Incident;
+use App\Project;
 
 class IncidentController extends Controller
 {
@@ -42,11 +43,17 @@ class IncidentController extends Controller
         $this->validate($request, $rules, $messages);
         
         $incident = new Incident();
-        $incident->category_id = ($request->input('category_id') ?: null);
+        $incident->category_id = $request->input('category_id') ?: null;
         $incident->severity = $request->input('severity');
         $incident->title = $request->input('title');
         $incident->description = $request->input('description');
-        $incident->client_id = auth()->user()->id;
+
+        $user = auth()->user();
+
+        $incident->client_id = $user->id;
+        $incident->project_id = $user->selected_project_id;
+        $incident->level_id = Project::find($user->selected_project_id)->first_level_id;
+
         $incident->save();
 
         return back();
